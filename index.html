@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        @media only screen and (max-width: 600px) {
+            .sidebar {
+                width: 100%;
+                border-right: none;
+            }
+
+            .user-input {
+                flex-direction: column;
+                margin-top: 10px;
+            }
+
+            input {
+                margin-right: 0;
+            }
+
+            button {
+                margin-top: 10px;
+            }
+
+            button, input {
+                padding: 20px;
+                font-size: 16px;
+            }
+
+            .chat-header,
+            .chat-box,
+            .message.bot-message,
+            .user-input input,
+            .user-input button {
+                border-radius: 0;
+            }
+        }
+    </style>
+    <title>PUNDORO</title>
+</head>
+<body>
+    <div class="chat-container" id="chatContainer">
+        <div class="sidebar">
+            <img class="logo" src="./img/pundoro.png" alt="">
+
+            <button onclick="newChat()">Yeni Sohbet</button>
+            <button onclick="toggleDarkMode()">Modu Değiştir</button>
+        </div>
+        <div class="main-content">
+            <div class="chat-header">
+                <h2 style="font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;">PUNDORO-1 BETA</h2>
+            </div>
+            <div class="chat-box" id="chatBox">
+            </div>
+            <div class="user-input">
+                <input type="text" id="userInput" placeholder="Mesajınızı yazın..." onkeydown="handleKeyDown(event)">
+                <button onclick="sendMessage()">Gönder</button>
+            </div>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.0/anime.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
