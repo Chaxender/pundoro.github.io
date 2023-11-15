@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <link rel="icon" href="./img/pundoro.png" type="image/x-icon" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <title>PUNDORO</title>
+</head>
+<body>
+    <div class="chat-container" id="chatContainer">
+        <div class="sidebar">
+            <img class="logo" src="./img/pundoro.png" alt="">
+            <div class="sidebar-buttons">
+                <button class="toggle-sidebar-btn" onclick="toggleSidebar()"><i class="fas fa-bars sidebar-icon"></i></button>
+                <button class="new-chat-btn" onclick="newChat()"><i class="fas fa-plus sidebar-icon"></i></button>
+            </div>
+        </div>
+        <div class="main-content">
+            <div class="chat-header">
+                <h2 style="font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;">PUNDORO-1</h2>
+            </div>
+            <div class="chat-box" id="chatBox"></div>
+            <div class="user-input">
+                <input type="text" id="userInput" placeholder="Type your message..." onkeydown="handleKeyDown(event)">
+                <button onclick="sendMessage()">Send</button>
+            </div>
+        </div>
+    </div>
+    <div class="status-bar" id="statusBar">
+        <p id="statusText"></p>
+        
+       <!-- Gece modu düğmesi için -->
+<button class="toggle-day-night-btn" onclick="toggleDayNightMode()"><i class="fas fa-sun"></i><i class="fas fa-moon"></i></button>
+
+    </div>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.0/anime.min.js"></script>
+    <script src="script.js"></script>
+    <script>
+        function toggleSidebar() {
+            $('.sidebar').toggleClass('sidebar-closed');
+        }
+        function newChat() {
+            var chatBox = $('#chatBox');
+            chatBox.empty(); // Clear the chat box content
+        }
+        function toggleSidebar() {
+        $('.sidebar').toggleClass('sidebar-closed');
+    }
+
+    function newChat() {
+        var chatBox = $('#chatBox');
+        chatBox.empty(); // Clear the chat box content
+    }
+
+    function toggleDayNightMode() {
+        $('body').toggleClass('night-mode');
+        $('body').toggleClass('dark-mode'); // Gece modu ve gündüz modu geçişini kontrol et
+        $('.toggle-day-night-btn i').toggleClass('fa-sun fa-moon');
+    }
+    </script>
+</body>
+</html>
