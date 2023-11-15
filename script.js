@@ -33,6 +33,7 @@ function sendMessage() {
     }, 1000);
 }
 
+
 function checkSpecialCommands(message) {
     var lowerCaseMessage = message.toLowerCase();
 
@@ -41,8 +42,56 @@ function checkSpecialCommands(message) {
     } else if (lowerCaseMessage === 'naber') {
         respondToNaber();
     }
-
+    if (lowerCaseMessage === '!komutlistesi') {
+        showCommandList();
+    }
 }
+
+function showCommandList() {
+    var botMessage = createMessage('bot', 'Mevcut Komutlar:\n' +
+    '- !tarih\n' +
+    '- !adolfhitler\n' +
+    '- !göktürkler\n' +
+    '- !uygurlar\n' +
+    '- !ödev\n' +
+    '- !sosyalbilgiler\n' +
+    '- !fen\n' +
+    '- !hava\n' +
+    '- !müzik\n' +
+    '- !filmönerisi\n' +
+    '- !programlama\n' +
+    '- !motivasyon\n' +
+    '- !spor\n' +
+    '- !kitapönerisi\n' +
+    '- !teknoloji\n' +
+    '- !trendler\n' +
+    '- !sağlık\n' +
+    '- !gezi\n' +
+    '- !tatil\n' +
+    '- !tezatıştırma\n' +
+    '- !güvenlik\n' +
+    '- !doğa\n' +
+    '- !yemektarifi\n' +
+    '- !bulut\n' +
+    '- !öğrenme\n' +
+    '- !girişimcilik\n' +
+    '- !insanilişkileri\n' +
+    '- !evdekal\n' +
+    '- !gönüllülük\n' +
+    '- !yoga\n' +
+    '- !oyun\n' +
+    '- !gitar\n' +
+    '- !bahçe\n' +
+    '- !çizim\n' +
+    '- !fotoğrafçılık\n' +
+    '- !güneşkremi\n' +
+    '- !bisiklet\n' +
+    '- !müze');
+    chatBox.append(botMessage);
+    saveChatHistory();
+    animateMessage(botMessage);
+}
+
 
 function greetUser() {
     var botMessage = createMessage('bot', 'Merhaba! Sana nasıl yardımcı olabilirim?');
@@ -77,10 +126,7 @@ function respondToUser(userMessage) {
         botMessage = createMessage('bot', 'Sevindim! Bende iyiyim');
     } else if (userMessage.toLowerCase().includes('iyym')) {
         botMessage = createMessage('bot', 'Sanırım kısaltmalı kelimeler seviyorsunuz! Sevindim...');
-    } else {
-        botMessage = createMessage('bot', 'Üzgünüm, bu soruya henüz bir yanıtım yok.');
     }
-
 
     if (userMessage.toLowerCase().includes('!tarih')) {
         
@@ -102,6 +148,71 @@ function respondToUser(userMessage) {
         botMessage = createMessage('bot', 'Bu özellik maalesef şuan yok.Yardım edebileceğim başka bir şey var mı?');
 
     }
+
+if (userMessage.toLowerCase().includes('!hava')) {
+    botMessage = createMessage('bot', 'Hava durumu için bir hizmet sunamıyorum. Ancak, hava durumu sitelerini ziyaret ederek güncel bilgileri öğrenebilirsiniz.');
+} else if (userMessage.toLowerCase().includes('!müzik')) {
+    botMessage = createMessage('bot', 'Spotify, Apple Music veya YouTube gibi platformlardan müzik dinleyebilirsin.');
+} else if (userMessage.toLowerCase().includes('!filmönerisi')) {
+    botMessage = createMessage('bot', 'Son zamanlarda popüler olan bir filmi izleyebilirsin. Örneğin, "Dune" veya "No Time to Die" gibi.');
+} else if (userMessage.toLowerCase().includes('!programlama')) {
+    botMessage = createMessage('bot', 'Programlamayla ilgileniyorsanız, JavaScript, Python veya Java gibi dilleri öğrenmeyi düşünebilirsiniz.');
+} else if (userMessage.toLowerCase().includes('!motivasyon')) {
+    botMessage = createMessage('bot', 'Başarı, disiplin ve azimle her şeyi başarabilirsiniz! Unutmayın ki her gün biraz daha iyiyim.');
+} else if (userMessage.toLowerCase().includes('!spor')) {
+    botMessage = createMessage('bot', 'Spor yapmak önemlidir. Egzersiz, sağlıklı yaşamın anahtarıdır.');
+} else if (userMessage.toLowerCase().includes('!kitapönerisi')) {
+    botMessage = createMessage('bot', 'Kitap önerileri: "Sapiens" by Yuval Noah Harari veya "Atomic Habits" by James Clear.');
+} else if (userMessage.toLowerCase().includes('!teknoloji')) {
+    botMessage = createMessage('bot', 'Teknolojideki gelişmeleri takip etmek için teknoloji haber sitelerini düzenli olarak okuyabilirsiniz.');
+} else if (userMessage.toLowerCase().includes('!trendler')) {
+    botMessage = createMessage('bot', 'Gündemdeki trendlere ayak uydurmak önemlidir. Sosyal medyayı ve haber sitelerini takip edin.');
+} else if (userMessage.toLowerCase().includes('!sağlık')) {
+    botMessage = createMessage('bot', 'Sağlığınıza dikkat edin! Düzenli egzersiz yapın, sağlıklı beslenin ve yeterince uyuyun.');
+} else if (userMessage.toLowerCase().includes('!gezi')) {
+    botMessage = createMessage('bot', 'Farklı kültürleri keşfetmek için seyahat etmek harika bir deneyim olabilir.');
+} else if (userMessage.toLowerCase().includes('!tatil')) {
+    botMessage = createMessage('bot', 'Tatil planları yaparken rahatlamayı unutmayın. Seyahat edin veya evinizde keyifli zaman geçirin.');
+} else if (userMessage.toLowerCase().includes('!tezatıştırma')) {
+    botMessage = createMessage('bot', 'Tezatıştırmak, farklı fikirleri bir araya getirerek daha iyi sonuçlar elde etmenin bir yolu olabilir.');
+} else if (userMessage.toLowerCase().includes('!güvenlik')) {
+    botMessage = createMessage('bot', 'İnternet güvenliği konusunda bilgi sahibi olun. Güçlü şifreler kullanın ve güvenilir siteleri tercih edin.');
+} else if (userMessage.toLowerCase().includes('!doğa')) {
+    botMessage = createMessage('bot', 'Doğayı keşfetmek sakinleştirici bir etki yapabilir. Ormanda yürüyüşe çıkın veya deniz kenarında vakit geçirin.');
+} else if (userMessage.toLowerCase().includes('!yemektarifi')) {
+    botMessage = createMessage('bot', 'Yemek tarifi istiyorsanız, bir tarif kitabı veya çevrimiçi yemek tarifi siteleri size ilham verebilir.');
+} else if (userMessage.toLowerCase().includes('!bulut')) {
+    botMessage = createMessage('bot', 'Verilerinizi yedeklemek ve paylaşmak için bulut depolama hizmetlerini kullanabilirsiniz.');
+} else if (userMessage.toLowerCase().includes('!öğrenme')) {
+    botMessage = createMessage('bot', 'Sürekli öğrenmeye önem verin. Yeni beceriler kazanmak sizi daha yetenekli bir kişi yapacaktır.');
+} else if (userMessage.toLowerCase().includes('!girişimcilik')) {
+    botMessage = createMessage('bot', 'Girişimcilikle ilgileniyorsanız, başarılı girişimcilerin hikayelerini okuyun ve deneyim kazanmaya çalışın.');
+} else if (userMessage.toLowerCase().includes('!insanilişkileri')) {
+    botMessage = createMessage('bot', 'İnsan ilişkileri önemlidir. Empati kurmayı ve etkili iletişim becerilerini geliştirmeyi unutmayın.');
+} else if (userMessage.toLowerCase().includes('!evdekal')) {
+    botMessage = createMessage('bot', 'Covid-19 gibi salgın dönemlerinde evde kalmak, toplum sağlığı için önemlidir. Lütfen kurallara uyun.');
+} else if (userMessage.toLowerCase().includes('!gönüllülük')) {
+    botMessage = createMessage('bot', 'Topluma fayda sağlamak için gönüllü çalışmalara katılabilirsiniz.');
+} else if (userMessage.toLowerCase().includes('!yoga')) {
+    botMessage = createMessage('bot', 'Yoga yapmak zihinsel ve fiziksel sağlığınıza olumlu katkılarda bulunabilir.');
+} else if (userMessage.toLowerCase().includes('!oyun')) {
+    botMessage = createMessage('bot', 'Oyun oynamak stres atmanın ve eğlenmenin harika bir yoludur. Favori oyunlarınızı keşfedin.');
+} else if (userMessage.toLowerCase().includes('!gitar')) {
+    botMessage = createMessage('bot', 'Gitar çalmak istiyorsanız, temel akorları öğrenmekle başlayabilir ve çevrimiçi derslere katılabilirsiniz.');
+} else if (userMessage.toLowerCase().includes('!bahçe')) {
+    botMessage = createMessage('bot', 'Bahçe işleriyle ilgilenmek, doğayla iç içe olmanın keyifli bir yoludur. Bitki bakımı yapmayı deneyin.');
+} else if (userMessage.toLowerCase().includes('!çizim')) {
+    botMessage = createMessage('bot', 'Çizim yapmak yaratıcı bir uğraştır. Kağıda veya dijital platformlarda çizim becerilerinizi geliştirebilirsiniz.');
+} else if (userMessage.toLowerCase().includes('!fotoğrafçılık')) {
+    botMessage = createMessage('bot', 'Fotoğraf çekmek, anıları ölümsüzleştirmenin harika bir yoludur. Temel fotoğrafçılık tekniklerini öğrenmeye başlayın.');
+} else if (userMessage.toLowerCase().includes('!güneşkremi')) {
+    botMessage = createMessage('bot', 'Güneş kremi kullanmak, cildinizi güneşin zararlı etkilerinden korumanın önemli bir yoludur.');
+} else if (userMessage.toLowerCase().includes('!bisiklet')) {
+    botMessage = createMessage('bot', 'Bisiklet sürmek hem egzersiz yapmanın hem de çevreyi keşfetmenin harika bir yoludur.');
+} else if (userMessage.toLowerCase().includes('!müze')) {
+    botMessage = createMessage('bot', 'Müzeleri ziyaret ederek sanat ve tarih hakkında daha fazla bilgi edinebilirsiniz.');
+}
+
 
     chatBox.append(botMessage);
     saveChatHistory();
